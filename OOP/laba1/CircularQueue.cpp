@@ -9,19 +9,24 @@ class CircularQueue {
     T** queue;
 
     public:
-    void enqueue(T element);
+    void enqueue(const T& element);
     void dequeue();
     T* front();
     T* back();
-    void printQueue();
+    void print();
 
     CircularQueue(size_t _size): size(_size) {
+        std::cout<<"Standart constructor queue"<<std::endl;
         head = 0;
         tail = -1;
         queue = new T*[size];
+        for (int i = 0; i < size; i++) {
+            queue[i] = NULL;
+        }
     }
 
     CircularQueue(const CircularQueue& _queue): size(_queue.size), head(_queue.head), tail(_queue.tail) {
+        std::cout<<"Copy constructor queue"<<std::endl;
         queue = new T*[size];
         for (int i = 0; i < size; i++) {
             queue[i] = new T(*(_queue.queue[i]));
@@ -30,15 +35,17 @@ class CircularQueue {
 
     ~CircularQueue() {
         for (int i = 0; i < size; i++)
-            free(queue[i]);
+            delete queue[i];
+        delete[] queue;
+        std::cout<<"Queue destructor"<<std::endl;
     }
 };
 
 template <typename T>
-void CircularQueue<T>::enqueue(T element) {   
+void CircularQueue<T>::enqueue(const T& element) {   
     if (tail == size-1) {
         tail = 0;
-        free(queue[tail]);
+        delete queue[tail];
     }
     else {
         tail++;
@@ -50,7 +57,7 @@ template <typename T>
 void CircularQueue<T>::dequeue() { 
     if (tail < 0) return;
     if (queue[head] == NULL) return;
-    free(queue[head]);  
+    delete queue[head];  
     queue[head++] = NULL;
     if (head == size) {
         head = 0;
@@ -70,8 +77,8 @@ T* CircularQueue<T>::back() {
 }
 
 template <typename T>
-void CircularQueue<T>::printQueue() {
+void CircularQueue<T>::print() {
     for (int i = head, j = 0; queue[i] != NULL && j < size; i < size-1 ? i++ : i=0, j++) {
-        queue[i]->print();
+        if (queue[i] != NULL) queue[i]->print();
     }
 }
