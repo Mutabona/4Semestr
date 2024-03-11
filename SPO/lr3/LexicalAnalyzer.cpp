@@ -1,7 +1,5 @@
 #include "LexicalAnalyzer.h"
 
-//a +b aboba=4 if3 if 12-4 6 +5
-
 LexicalAnalyzer::LexicalAnalyzer() {
     setKeywords();
     setOperators();
@@ -17,18 +15,18 @@ void LexicalAnalyzer::setOperators() {
     operators.emplace("?", "T2");
     operators.emplace(":", "T3");
     //divide
-    operators.emplace("#", "D");
-    operators.emplace("&", "D");
+    operators.emplace("#", "E");
+    operators.emplace("&", "F");
     //assigment
-    operators.emplace(":=", "As");
-    operators.emplace("=", "As");
+    operators.emplace(":=", "O");
+    operators.emplace("=", "O");
     //end
-    operators.emplace(";", "E");
+    operators.emplace(";", "0");
     //ariphmetic
-    operators.emplace("+", "Ar");
-    operators.emplace("-", "Ar");
-    operators.emplace("*", "Ar");
-    operators.emplace("/", "Ar");
+    operators.emplace("+", "O");
+    operators.emplace("-", "O");
+    operators.emplace("*", "O");
+    operators.emplace("/", "O");
 }
 
 std::vector<std::string> LexicalAnalyzer::divideIntoSubStrings(std::string str) {
