@@ -12,16 +12,16 @@
 
 class LexicalAnalyzer {
     private:
-      std::vector<std::string> divideIntoSubStrings(std::string str);
+      int head;
 
       std::list<std::string> lexems;
       std::map<std::string, std::string> keywords;
       std::map<std::string, std::string> operators;
       
       int validateString(std::string str);
-      int validateConstant(std::string str, int start);
-      int validateIdentifier(std::string str, int start);
-      int validateOperator(std::string str, int start);
+      int validateConstant(std::string str);
+      int validateIdentifier(std::string str);
+      int validateOperator(std::string str);
       
       void setKeywords();
       void setOperators();

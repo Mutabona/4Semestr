@@ -124,6 +124,7 @@ int SyntaxisAnalyzer::validatePrimary(std::string str) {
         head++;
         if (validateExpression(str)) return -1;
         if (str[head] == ')') {
+            head++;
             return 0;
         }
     }

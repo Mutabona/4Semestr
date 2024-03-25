@@ -37,23 +37,11 @@ void LexicalAnalyzer::setOperators() {
     operators.emplace(")", ")");
 }
 
-std::vector<std::string> LexicalAnalyzer::divideIntoSubStrings(std::string str) {
-    std::vector<std::string> subStrings;
-    std::istringstream iss(str);
-    std::string token;
-    while(std::getline(iss, token, ' ')) {
-        subStrings.push_back(token);
-    }
-    return subStrings;
-}
-
-std::string LexicalAnalyzer::analyze(std::string str) {
+std::string LexicalAnalyzer::analyze(std::string _str) {
+    head = 0;
     lexems.clear();
-    std::vector<std::string> subStrings = divideIntoSubStrings(str);
     std::string final;
-    for (auto str : subStrings) {
-        validateString(str);
-    }
+    validateString(_str);
     for (auto str : lexems) {
         final += str;
     }
@@ -61,61 +49,29 @@ std::string LexicalAnalyzer::analyze(std::string str) {
 }
 
 int LexicalAnalyzer::validateString(std::string str) {
-    if (isdigit(str[0])) {
-        if(validateConstant(str, 0) == -1) {
-            return -1;
+    while(head != str.size()) {
+        if (isspace(str[head])) {
+            head++;
+            continue;
         }
-        return 0;
+        else if (isdigit(str[head])) {
+            if(validateConstant(str)) return -1;
+        }
+        else if (isalpha(str[head])) {
+            if (validateIdentifier(str)) return -1;
+        }
+        else {
+            if (validateOperator(str)) return -1;
+        }
     }
     
-    if (keywords.find(str) != keywords.end()) {
-        lexems.push_back(keywords[str]);
-        //std::cout << "Keyword: " << str <<" lexem: " << keywords[str] << std::endl;
-        return 0;
-    }
-    
-    if (validateIdentifier(str, 0) == -1) {
-        return -1;
-    }
     return 0;
 }
 
-int LexicalAnalyzer::validateConstant(std::string str, int start) {
+int LexicalAnalyzer::validateConstant(std::string str) {
     std::string token;
-    for (int i = start; i < str.size(); i++) {
-        if (!isdigit(str[i])) {
-            int j;
-            if ((j = validateOperator(str, i)) != -1) {
-
-                if (token.size() > 0) {
-                    auto position = lexems.end();
-                    position--;
-                    lexems.insert(position, "C");
-                    //std::cout << "Constant: " << token << " lexem: C" << std::endl;
-                    token = "";
-                }
-                
-                i=j-1;
-                if (isalpha(str[j])) {
-                    if(validateConstant(str, j) == -1) {
-                        return -1;
-                    }
-                    return 0;
-                }
-                continue;
-            }
-            else {
-                if (isalpha(str[i])) {
-                    std::cout << "Identifier can't start with the number: " << str << std::endl;
-                }
-                else {
-                    std::cout << "Unexpected symbol: " << str[i] << " in: " << str << std::endl;
-                }
-                lexems.push_back(" error ");
-                return -1;
-            }
-        }
-        token += str[i];
+    for (; head < str.size() && isdigit(str[head]); head++) {
+        token += str[head];
     }
     if (token.size() > 0) {
         lexems.push_back("C");
@@ -125,58 +81,55 @@ int LexicalAnalyzer::validateConstant(std::string str, int start) {
     return 0;
 }
 
-int LexicalAnalyzer::validateIdentifier(std::string str, int start) {
+int LexicalAnalyzer::validateIdentifier(std::string str) {
     std::string token;
-    for (int i = start; i < str.size(); i++) {
-        if (!isalpha(str[i]) && !isdigit(str[i])) {
-            int j;
-            if ((j = validateOperator(str, i)) != -1) {
-                
-                if (token.size() > 0) {
-                    auto position = lexems.end();
-                    position--;
-                    lexems.insert(position, "I");
-                    //std::cout << "Identifier: " << token << " lexem: I" << std::endl;
-                    token = "";
-                }
-                
-                i=j-1;
-                if (isdigit(str[j])) {
-                    if(validateConstant(str, j) == -1) {
-                        return -1;
-                    }
-                    return 0;
-                }
-                continue;
-            }
-            else {
-                std::cout << "Unexpected symbol: " << str[i] << " in: " << str << std::endl;
-                lexems.push_back(" error ");
-                return -1;
-            }
-        }
-        token += str[i];
+    for (; head < str.size() && isalnum(str[head]); head++) {
+        token += str[head];
     }
     if (token.size() > 0) {
-        lexems.push_back("I");
-        //std::cout << "Identifier: " << token << " lexem: I" << std::endl;
+        if (keywords.find(token) != keywords.end()) {
+            lexems.push_back(keywords[token]);
+            //std::cout << "Keyword: " << token << " lexem: " << keywords[token] << std::endl;
+        }
+        else {
+            lexems.push_back("I");
+            //std::cout << "Identifier: " << token << " lexem: I" << std::endl;
+        }
     }
     return 0;
 }
 
-int LexicalAnalyzer::validateOperator(std::string str, int start) {
+int LexicalAnalyzer::validateOperator(std::string str) {
     std::string token;
-    int i = start;
-    for (; i < str.size(); i++) {
-        if (isdigit(str[i]) || isalpha(str[i])) break;
-        else token+=str[i];
+    for (; head < str.size(); head++) {
+        if (str[head] == '(' || str[head] == ')') {
+            if (token.size() > 0) {
+                if (operators.find(token) != operators.end()) {
+                    //std::cout << "Operator: " << token << " lexem: " << operators[token] << std::endl;
+                    lexems.push_back(operators[token]);
+                    token.clear();
+                }
+                else {
+                    std::cout << "No operator matches: " << token << std::endl;
+                    return -1;
+                }
+            }
+            token+=str[head];
+            //std::cout << "Operator: " << token << " lexem: " << operators[token] << std::endl;
+            lexems.push_back(operators[token]);
+            head++;
+            return 0;
+        }
+        else if (isalnum(str[head]) || isspace(str[head])) break;
+        else token+=str[head];
     }
     if (operators.find(token) != operators.end()) {
         //std::cout << "Operator: " << token << " lexem: " << operators[token] << std::endl;
         lexems.push_back(operators[token]);
-        return i;
+        return 0;
     }
     else {
+        std::cout << "No operator matches: " << token << std::endl;
         return -1;
     }
 }
