@@ -1,0 +1,3 @@
+if a?a:=c:a=b; a:=g
+a=12
+if e?d=d#d#(d&c):a=5

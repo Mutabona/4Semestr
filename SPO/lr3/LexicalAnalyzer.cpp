@@ -7,26 +7,34 @@ LexicalAnalyzer::LexicalAnalyzer() {
 
 void LexicalAnalyzer::setKeywords() {
     //term
-    keywords.emplace("if", "T1");
+    keywords.emplace("if", "T");
 }
 
 void LexicalAnalyzer::setOperators() {
     //term
-    operators.emplace("?", "T2");
-    operators.emplace(":", "T3");
+    operators.emplace("?", "?");
+    operators.emplace(":", ":");
     //divide
     operators.emplace("#", "E");
     operators.emplace("&", "F");
     //assigment
-    operators.emplace(":=", "O");
-    operators.emplace("=", "O");
+    operators.emplace(":=", "A");
+    operators.emplace("=", "A");
     //end
-    operators.emplace(";", "0");
+    operators.emplace(";", ";");
     //ariphmetic
     operators.emplace("+", "O");
     operators.emplace("-", "O");
     operators.emplace("*", "O");
     operators.emplace("/", "O");
+    //relation
+    operators.emplace("<", "R");
+    operators.emplace("<=", "R");
+    operators.emplace(">", "R");
+    operators.emplace(">=", "R");
+    //brackets
+    operators.emplace("(", "(");
+    operators.emplace(")", ")");
 }
 
 std::vector<std::string> LexicalAnalyzer::divideIntoSubStrings(std::string str) {
@@ -40,6 +48,7 @@ std::vector<std::string> LexicalAnalyzer::divideIntoSubStrings(std::string str) 
 }
 
 std::string LexicalAnalyzer::analyze(std::string str) {
+    lexems.clear();
     std::vector<std::string> subStrings = divideIntoSubStrings(str);
     std::string final;
     for (auto str : subStrings) {
@@ -61,7 +70,7 @@ int LexicalAnalyzer::validateString(std::string str) {
     
     if (keywords.find(str) != keywords.end()) {
         lexems.push_back(keywords[str]);
-        std::cout << "Keyword: " << str <<" lexem: " << keywords[str] << std::endl;
+        //std::cout << "Keyword: " << str <<" lexem: " << keywords[str] << std::endl;
         return 0;
     }
     
@@ -82,7 +91,7 @@ int LexicalAnalyzer::validateConstant(std::string str, int start) {
                     auto position = lexems.end();
                     position--;
                     lexems.insert(position, "C");
-                    std::cout << "Constant: " << token << " lexem: C" << std::endl;
+                    //std::cout << "Constant: " << token << " lexem: C" << std::endl;
                     token = "";
                 }
                 
@@ -110,7 +119,7 @@ int LexicalAnalyzer::validateConstant(std::string str, int start) {
     }
     if (token.size() > 0) {
         lexems.push_back("C");
-        std::cout << "Constant: " << token << " lexem: C" << std::endl;
+        //std::cout << "Constant: " << token << " lexem: C" << std::endl;
     }
     
     return 0;
@@ -127,7 +136,7 @@ int LexicalAnalyzer::validateIdentifier(std::string str, int start) {
                     auto position = lexems.end();
                     position--;
                     lexems.insert(position, "I");
-                    std::cout << "Identifier: " << token << " lexem: I" << std::endl;
+                    //std::cout << "Identifier: " << token << " lexem: I" << std::endl;
                     token = "";
                 }
                 
@@ -150,7 +159,7 @@ int LexicalAnalyzer::validateIdentifier(std::string str, int start) {
     }
     if (token.size() > 0) {
         lexems.push_back("I");
-        std::cout << "Identifier: " << token << " lexem: I" << std::endl;
+        //std::cout << "Identifier: " << token << " lexem: I" << std::endl;
     }
     return 0;
 }
@@ -163,7 +172,7 @@ int LexicalAnalyzer::validateOperator(std::string str, int start) {
         else token+=str[i];
     }
     if (operators.find(token) != operators.end()) {
-        std::cout << "Operator: " << token << " lexem: " << operators[token] << std::endl;
+        //std::cout << "Operator: " << token << " lexem: " << operators[token] << std::endl;
         lexems.push_back(operators[token]);
         return i;
     }

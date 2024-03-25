@@ -10,14 +10,15 @@
 
 class SyntaxisAnalyzer {
     private:
-        int validateIfOperator(std::string);
+        int head = 0;
+
+        int validateOperatorIf(std::string);
         int validateFactor(std::string);
         int validateOperator(std::string);
         int validateOperatorAR(std::string);
         int validateExpression(std::string);
         int validateBlock(std::string);
-
-        std::vector<std::string> divideIntoOperators(std::string str);
+        int validatePrimary(std::string);
     public:
         SyntaxisAnalyzer() {}
         bool analyze(std::string str);

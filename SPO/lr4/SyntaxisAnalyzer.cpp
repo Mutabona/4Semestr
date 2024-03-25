@@ -1,42 +1,135 @@
 #include "SyntaxisAnalyzer.h"
 
 bool SyntaxisAnalyzer::analyze(std::string str) {
-    std::vector<std::string> operators = divideIntoOperators(str);
-
-    for (auto oper : operators) {
-        validateOperator(oper);
+    head = 0;
+    if (validateBlock(str)) {
+        return false;
     }
+    return true;
+}
+
+int SyntaxisAnalyzer::validateBlock(std::string str) {
+    std::cout<< "Block" << std::endl;
+    if(validateOperator(str)) {
+        std::cout<< "No block " << std::endl;
+        return -1;
+    }
+    if (str[head] == ';') {
+        head++;
+        if(validateBlock(str)) return -1;
+    } 
+    else if (head == str.size()) {
+        return 0;
+    } 
+    else {
+        return -1;
+    }
+    return 0;
 }
 
 int SyntaxisAnalyzer::validateOperator(std::string str) {
-    if (str[0] == 'I') {
-        validateOperatorAR(str);
+    std::cout<< "Operator " << "head -> " << str[head] << std::endl;
+    if (str[head] == 'I') {
+        head++;
+        if(validateOperatorAR(str)) return -1;
     }
-    else if (str[0] == 'T') {
-        validateIfOperator(str);
+    else if (str[head] == 'T') {
+        head++;
+        if(validateOperatorIf(str)) return -1;
     }
     else {
         return -1;
     }
+    return 0;
 }
 
 int SyntaxisAnalyzer::validateOperatorAR(std::string str) {
-    if (str[0] == 'I' && str[1] == 'O') {
-        validateExpression(str);
+    std::cout<< "Operator AR " << "head -> " << str[head] << std::endl;
+    if (str[head] == 'A' || str[head] == 'R') {
+        head++;
+        if (validateExpression(str)) {
+            return -1;
+        }
     }
     else {
+        std::cout<< "No operator AR " << std::endl;
         return -1;
     }
+    return 0;
 }
 
-
-
-std::vector<std::string> SyntaxisAnalyzer::divideIntoOperators(std::string str) {
-    std::vector<std::string> subStrings;
-    std::istringstream iss(str);
-    std::string token;
-    while(std::getline(iss, token, ';')) {
-        subStrings.push_back(token);
+int SyntaxisAnalyzer::validateOperatorIf(std::string str) {
+    std::cout<< "Operator IF " << "head -> " << str[head] << std::endl;
+    if (str[head] == 'I') {
+        head++;
+    } 
+    else {
+        std::cout<< "No Term 1 " << std::endl;
+        return -1;
     }
-    return subStrings;
+
+    if (str[head] == '?') {
+        head++;
+        if (validateOperator(str)) return -1;
+    }
+    else {
+        std::cout<< "No Term 2 " << std::endl;
+        return -1;
+    }
+
+    if (str[head] == ':') {
+        head++;
+        if (validateOperator(str)) return -1;
+    }
+    else {
+        std::cout<< "No Term 3 " << std::endl;
+        return -1;
+    }
+    return 0;
+}
+
+int SyntaxisAnalyzer::validateExpression(std::string str) {
+    std::cout<< "Expression " << "head -> " << str[head] << std::endl;
+    if (validateFactor(str)) {
+        std::cout<< "No expression " << std::endl;
+        return -1;
+    }
+    if (str[head] == 'E') {
+        head++;
+        if (validateExpression(str)) return -1;
+    }
+    return 0;
+}
+
+int SyntaxisAnalyzer::validateFactor(std::string str) {
+    std::cout<< "Factor " << "head -> " << str[head] << std::endl;
+    if (validatePrimary(str)) {
+        std::cout<< "No factor " << std::endl;
+        return -1;
+    }
+    if (str[head] == 'F') {
+        head++;
+        if (validateFactor(str)) return -1;
+    }
+    return 0;
+}
+
+int SyntaxisAnalyzer::validatePrimary(std::string str) {
+    std::cout<< "Primary " << "head -> " << str[head] << std::endl;
+    if (str[head] == 'I' || str[head] == 'C') {
+        head++;
+        return 0;
+    }
+    else if (str[head] == '(') {
+        head++;
+        if (validateExpression(str)) return -1;
+        if (str[head] == ')') {
+            return 0;
+        }
+    }
+    else {
+        std::cout<< "No primary " << std::endl;
+        return -1;
+    }
+    return 0;
 }

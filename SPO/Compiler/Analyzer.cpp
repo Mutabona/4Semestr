@@ -1,15 +1,15 @@
-#include "../lr3/LexicalAnalyzer.h"
-#include "../lr4/SyntaxisAnalyzer.h"
-
-class Analyzer {
-    private:
-    SyntaxisAnalyzer syntaxisAnalyzer;
-    LexicalAnalyzer lexicalAnalyzer;
-
-    public:
-    int Analyze(std::string str);
-};
+#include "Analyzer.h"
 
 int Analyzer::Analyze(std::string str) {
-    syntaxisAnalyzer.analyze(lexicalAnalyzer.analyze(str));
+    std::string lexems = lexicalAnalyzer.analyze(str);
+    std::cout<< lexems <<std::endl;
+    bool belongToLanguage = syntaxisAnalyzer.analyze(lexems);
+    if (belongToLanguage) {
+        std::cout<< "The string belongs to the language\n" << std::endl;
+        return 0;
+    }
+    else {
+        std::cout<< "The string does not belong to the language\n" << std::endl;
+        return -1;
+    }
 }
