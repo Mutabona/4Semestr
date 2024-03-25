@@ -15,7 +15,7 @@ class SyntaxisAnalyzer {
         int validateOperatorIf(std::string);
         int validateFactor(std::string);
         int validateOperator(std::string);
-        int validateOperatorAR(std::string);
+        int validateOperatorARO(std::string);
         int validateExpression(std::string);
         int validateBlock(std::string);
         int validatePrimary(std::string);
