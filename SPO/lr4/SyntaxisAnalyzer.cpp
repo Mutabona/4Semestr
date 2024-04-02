@@ -31,7 +31,7 @@ int SyntaxisAnalyzer::validateOperator(std::string str) {
     std::cout<< "Operator " << "head -> " << str[head] << std::endl;
     if (str[head] == 'I') {
         head++;
-        if(validateOperatorAR(str)) return -1;
+        if(validateOperatorARO(str)) return -1;
     }
     else if (str[head] == 'T') {
         head++;
@@ -43,9 +43,9 @@ int SyntaxisAnalyzer::validateOperator(std::string str) {
     return 0;
 }
 
-int SyntaxisAnalyzer::validateOperatorAR(std::string str) {
+int SyntaxisAnalyzer::validateOperatorARO(std::string str) {
     std::cout<< "Operator AR " << "head -> " << str[head] << std::endl;
-    if (str[head] == 'A' || str[head] == 'R') {
+    if (str[head] == 'A' || str[head] == 'O' || str[head] == 'R') {
         head++;
         if (validateExpression(str)) {
             return -1;
