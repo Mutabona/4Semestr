@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-04-01T07:44:36.314Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="LBwF8tPEdMMLc4lAlmpP" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-04-04T08:47:07.092Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="6bSKHTBzIiuo2FMYEstz" version="24.1.0" type="device">
   <diagram name="Страница — 1" id="TnVSrqANqGjrzwxhtsa9">
-    <mxGraphModel dx="2074" dy="1245" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1050" dy="669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -381,7 +381,7 @@
             <mxPoint x="1040" y="940" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zMbGXOJrmM4zI0uec8rR-18" value="Лицевой счёт потртебителя" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+        <mxCell id="zMbGXOJrmM4zI0uec8rR-18" value="Номер потребителя" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="1315.5" y="960" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="zMbGXOJrmM4zI0uec8rR-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.677;entryDx=0;entryDy=0;endArrow=none;endFill=0;entryPerimeter=0;" parent="1" source="zMbGXOJrmM4zI0uec8rR-19" target="QQkrn45E11qDasoCyKQB-1" edge="1">
@@ -419,13 +419,13 @@
         <mxCell id="QQkrn45E11qDasoCyKQB-1" value="Начисление" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="930" y="900" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="-Q-Gq6aUETZk6ljJd5MN-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="-Q-Gq6aUETZk6ljJd5MN-3" target="NdZXXLd5ungyBNJHAnuO-7">
+        <mxCell id="-Q-Gq6aUETZk6ljJd5MN-2" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="-Q-Gq6aUETZk6ljJd5MN-3" target="NdZXXLd5ungyBNJHAnuO-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="860" y="1180" as="sourcePoint" />
             <mxPoint x="962" y="1190" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="-Q-Gq6aUETZk6ljJd5MN-3" value="Номер начисления" style="ellipse;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+        <mxCell id="-Q-Gq6aUETZk6ljJd5MN-3" value="Номер начисления" style="ellipse;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="770" y="1170" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
