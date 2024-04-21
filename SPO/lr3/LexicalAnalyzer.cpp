@@ -15,23 +15,23 @@ void LexicalAnalyzer::setOperators() {
     operators.emplace("?", "?");
     operators.emplace(":", ":");
     //divide
-    operators.emplace("#", "E");
-    operators.emplace("&", "F");
+    operators.emplace("#", "#");
+    operators.emplace("&", "&");
     //assigment
     operators.emplace(":=", "A");
     operators.emplace("=", "A");
     //end
     operators.emplace(";", ";");
     //ariphmetic
-    operators.emplace("+", "O");
-    operators.emplace("-", "O");
-    operators.emplace("*", "O");
-    operators.emplace("/", "O");
+    // operators.emplace("+", "O");
+    // operators.emplace("-", "O");
+    // operators.emplace("*", "O");
+    // operators.emplace("/", "O");
     //relation
-    operators.emplace("<", "R");
-    operators.emplace("<=", "R");
-    operators.emplace(">", "R");
-    operators.emplace(">=", "R");
+    // operators.emplace("<", "R");
+    // operators.emplace("<=", "R");
+    // operators.emplace(">", "R");
+    // operators.emplace(">=", "R");
     //brackets
     operators.emplace("(", "(");
     operators.emplace(")", ")");
