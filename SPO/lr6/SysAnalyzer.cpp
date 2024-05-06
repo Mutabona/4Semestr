@@ -65,8 +65,9 @@ void SysAnalyzer::UseRule() {
 
 void SysAnalyzer::SetRules() {
     rules.emplace("B", 'S');
-    rules.emplace("O", 'B');
-    rules.emplace("O;B", 'B');
+    rules.emplace("X", 'B');
+    rules.emplace("X;B", 'B');
+    rules.emplace("O", 'X');
     rules.emplace("IAE", 'O');
     rules.emplace("TI?O:O", 'O');
     rules.emplace("F", 'E');
@@ -95,8 +96,11 @@ void SysAnalyzer::SetRelationMatrix() {
 
     relationMatrix.emplace(make_pair('B', '$'), '>');
 
+    relationMatrix.emplace(make_pair('X', ';'), '=');
+    relationMatrix.emplace(make_pair('X', '$'), '>');
+
     relationMatrix.emplace(make_pair('O', ':'), '=');
-    relationMatrix.emplace(make_pair('O', ';'), '=');
+    relationMatrix.emplace(make_pair('O', ';'), '>');
     relationMatrix.emplace(make_pair('O', '$'), '>');
 
     relationMatrix.emplace(make_pair('T', 'I'), '=');
@@ -182,12 +186,14 @@ void SysAnalyzer::SetRelationMatrix() {
     relationMatrix.emplace(make_pair(';', 'O'), '<');
     relationMatrix.emplace(make_pair(';', 'T'), '<');
     relationMatrix.emplace(make_pair(';', 'I'), '<');
+    relationMatrix.emplace(make_pair(';', 'X'), '<');
 
     relationMatrix.emplace(make_pair('$', 'S'), '<');
     relationMatrix.emplace(make_pair('$', 'B'), '<');
     relationMatrix.emplace(make_pair('$', 'O'), '<');
     relationMatrix.emplace(make_pair('$', 'T'), '<');
     relationMatrix.emplace(make_pair('$', 'I'), '<');
+    relationMatrix.emplace(make_pair('$', 'X'), '<');
 }
 
 void SysAnalyzer::ClearStacks() {
