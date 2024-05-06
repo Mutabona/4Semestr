@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "map": "cpp",
+        "utility": "cpp",
+        "xtree": "cpp",
+        "stack": "cpp",
+        "xstring": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "vector": "cpp",
+        "xlocinfo": "cpp",
+        "xutility": "cpp",
+        "ostream": "cpp"
+    }
+}
