@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "utility": "cpp",
+        "xtree": "cpp",
+        "xstring": "cpp",
+        "stack": "cpp",
+        "iosfwd": "cpp",
+        "xlocbuf": "cpp",
+        "iostream": "cpp"
+    }
+}

@@ -16,17 +16,19 @@ class SysAnalyzer {
     map<pair<char, char>, char> relationMatrix;
     map<string, char> rules;
 
-    void FillInputStack(string);
     void SetRelationMatrix();
     void ClearStacks();
-    void SetRules();
+    virtual void SetRules();
     bool CheckRelation();
     void UseRule();
-    void PrintOutputStack();
+
+    protected:
+    virtual void FillInputStack(string);
 
     public:
     SysAnalyzer();
-    bool Analyze(string);
+    virtual bool Analyze(string);
+    void PrintOutputStack();
 };
 
 #endif

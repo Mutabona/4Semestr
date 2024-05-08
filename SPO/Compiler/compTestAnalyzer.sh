@@ -1,1 +1,1 @@
-g++ testAnalyzer.cpp Analyzer.cpp ../lr4/SyntaxisAnalyzer.cpp ../lr3/LexicalAnalyzer.cpp ../lr5/LLAnalyzer.cpp ../lr6/SysAnalyzer.cpp -o testAnalyzer
+g++ testAnalyzer.cpp Analyzer.cpp ../lr4/SyntaxisAnalyzer.cpp ../lr3/LexicalAnalyzer.cpp ../lr5/LLAnalyzer.cpp ../lr6/SysAnalyzer.cpp ../lr7/LRAnalyzer.cpp -o testAnalyzer
