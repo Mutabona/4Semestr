@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 02 2024 г., 06:36
+-- Время создания: Май 15 2024 г., 08:21
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.2.34
 
@@ -35,6 +35,25 @@ CREATE TABLE `ACCURALS` (
   `date_to` date DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `ACCURALS`
+--
+
+INSERT INTO `ACCURALS` (`number`, `rate_number`, `consumer_number`, `date_from`, `date_to`, `amount`) VALUES
+(0, 0, 0, '2024-01-01', '2024-02-01', '123200.00'),
+(1, 1, 1, '2024-01-01', '2024-02-01', '871500.00'),
+(2, 2, 2, NULL, NULL, '205296.00'),
+(3, 3, 3, NULL, NULL, '160400.00'),
+(4, 4, 4, NULL, NULL, '160800.00');
+
+--
+-- Триггеры `ACCURALS`
+--
+DELIMITER $$
+CREATE TRIGGER `NEW_ACCURAL_BEFORE_INSERT` BEFORE INSERT ON `ACCURALS` FOR EACH ROW set NEW.amount = (SELECT cost*(SELECT area FROM CONSUMERS WHERE CONSUMERS.number = NEW.consumer_number) FROM RATES WHERE RATES.number = NEW.rate_number)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -178,6 +197,17 @@ CREATE TABLE `PAYMENTS` (
   `pay_date` date DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `PAYMENTS`
+--
+
+INSERT INTO `PAYMENTS` (`number`, `accural_number`, `pay_date`, `amount`) VALUES
+(0, 0, '2024-02-02', '123200.00'),
+(1, 1, '2024-02-02', '871500.00'),
+(2, 2, NULL, '205296.00'),
+(3, 3, NULL, '160400.00'),
+(4, 4, NULL, '160800.00');
 
 -- --------------------------------------------------------
 
