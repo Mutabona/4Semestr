@@ -1,0 +1,10 @@
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\bin\Debug\z4.exe.config
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\bin\Debug\z4.exe
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\bin\Debug\z4.pdb
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.csproj.AssemblyReference.cache
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.Form1.resources
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.Properties.Resources.resources
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.csproj.GenerateResource.cache
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.csproj.CoreCompileInputs.cache
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.exe
+C:\Users\k_dod\source\repos\Mutabona\4Semestr\VPVS\lr4\z4\z4\obj\Debug\z4.pdb

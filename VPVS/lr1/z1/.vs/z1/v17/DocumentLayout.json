@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|c:\\users\\k_dod\\source\\repos\\mutabona\\4semestr\\vpvs\\lr1\\z1\\z1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|solutionrelative:z1\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|c:\\users\\k_dod\\source\\repos\\mutabona\\4semestr\\vpvs\\lr1\\z1\\z1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|solutionrelative:z1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|c:\\users\\k_dod\\source\\repos\\mutabona\\4semestr\\vpvs\\lr1\\z1\\z1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|solutionrelative:z1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|c:\\users\\k_dod\\source\\repos\\mutabona\\4semestr\\vpvs\\lr1\\z1\\z1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCC41786-3CE4-4BAE-B4A6-6D3D32EA1C80}|z1\\z1.csproj|solutionrelative:z1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Program.cs",
+              "RelativeDocumentMoniker": "z1\\Program.cs",
+              "ToolTip": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Program.cs",
+              "RelativeToolTip": "z1\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:08:46.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.cs",
+              "RelativeDocumentMoniker": "z1\\Form1.cs",
+              "ToolTip": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.cs",
+              "RelativeToolTip": "z1\\Form1.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAgwDEAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:10:10.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "z1\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.Designer.cs",
+              "RelativeToolTip": "z1\\Form1.Designer.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAtwJgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T20:08:42.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.cs",
+              "RelativeDocumentMoniker": "z1\\Form1.cs",
+              "ToolTip": "C:\\Users\\k_dod\\source\\repos\\Mutabona\\4Semestr\\VPVS\\lr1\\z1\\z1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "z1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T19:52:47.367Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
